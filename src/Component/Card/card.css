@@ -1,0 +1,16 @@
+.person-card {
+  color: #FFC343;
+  border: 1px solid #FFC343;
+  width: 250px;
+  height: 300px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.picture {
+  height: 100px;
+  width: 100%;
+  background-image: url('../../assets/people/luke-skywalker.jpeg');
+  background-size: cover;
+
+}

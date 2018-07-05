@@ -1,0 +1,35 @@
+header {
+  height: 200px;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.logo-container{
+  grid-column: 2 / 3;
+  padding: 20px;
+}
+
+.logo {
+  height: 160px;
+}
+
+.fav-button-container {
+  padding: 20px;
+}
+
+.show-favorites {
+  float: right;
+  height: 50px;
+  width: 100px;
+  color: black;
+  background-color: #FFC343;
+  border: none;
+}
+
+.counter {
+  background-color: #000000;
+  color: #FFC343;
+  margin: 5px;
+  width: 20px;
+  height: 20px;
+}
