@@ -19,25 +19,51 @@ const fetchCrawl = async () => {
   return crawlData
 }
 
-const fetchPeople = async (request) => {
+const fetchData = async (request) => {
   const url = `https://swapi.co/api/${request}/?format=json`
   const response = await fetch(url)
-  const rawPeople = await response.json()
-  const allPeople = rawPeople.results
-  const peopleHomeworld = await findHomeworld(allPeople)
-  const peopleSpecies = await findSpecies(peopleHomeworld)
-  return cleanPeople(peopleSpecies)
+  const rawData = await response.json()
+  const allData = rawData.results
+  const cleanData = cleanPeople(allData)
+  const fullData = await checkForNested(cleanData)
+  // return cleanPeople(fullData)
 }
 
-const findHomeworld = (people) => {
-  const peoplePromise = people.map(async person => {
-    const response = await fetch(person.homeworld)
-    const homeworld = await response.json()
-    const fullGuy = {...person, homeworld}
-    return fullGuy
+const checkForNested = (data) => {
+  data.forEach(object => {
+    const dataKeys = Object.keys(object)
+    dataKeys.forEach(async key => {
+      if (Array.isArray(object[key])) {
+        const resolvedArray = await nestedArrayFetch(object[key])
+        return {...object, resolvedArray}
+      } else if (object[key].length > 20) {
+        await nestedFetch(object[key])
+      }
+    })
   })
-  return Promise.all(peoplePromise)
 }
+
+  const nestedArrayFetch = (array) => {
+    const retrieveNested = array.map(async url => {
+      const response = await fetch(url)
+      const result = await response.json()
+      return result.name
+    })
+    return Promise.all(retrieveNested)
+  }
+
+  const nestedFetch = async (url) => {
+    const response = await fetch(url)
+    const result = await response.json()
+  }
+//   const peoplePromise = people.map(async person => {
+//     const response = await fetch(person.homeworld)
+//     const homeworld = await response.json()
+//     const fullGuy = {...person, homeworld}
+//     return fullGuy
+//   })
+//   return Promise.all(peoplePromise)
+// }
 
 const findSpecies = (people) => {
   const peoplePromise = people.map(async person => {
@@ -86,7 +112,5 @@ const fetchVehicles = async () => {
 
 export {
   fetchCrawl,
-  fetchPeople,
-  fetchPlanets,
-  fetchVehicles
+  fetchData
 }

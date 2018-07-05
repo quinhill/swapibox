@@ -10,9 +10,9 @@ const cleanPeople = (data) => {
   const cleanedPeople = data.map(person => {
     return {
       name: person.name,
-      homeworld: person.homeworld.name,
-      species: person.species.name,
-      population: person.homeworld.population,
+      homeworld: person.homeworld,
+      species: person.species,
+      population: person.homeworld,
       favorite: false
     }
   })
