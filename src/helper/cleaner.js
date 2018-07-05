@@ -6,6 +6,18 @@ const cleanCrawl = (data) => {
   }
 }
 
+const cleanSort = (sort, data) => {
+  let cleanedData;
+  if (sort === 'people') {
+    cleanedData = cleanPeople(data)
+  } else if (sort === 'planets') {
+    cleanedData = cleanPlanets(data)
+  } else if (sort === 'vehicles') {
+    cleanedData = cleanVehicles(data)
+  }
+  return cleanedData;
+}
+
 const cleanPeople = (data) => {
   const cleanedPeople = data.map(person => {
     return {
@@ -21,13 +33,12 @@ const cleanPeople = (data) => {
 
 const cleanPlanets = (data) => {
   const cleanedPlanets = data.map(planet => {
-    const residents = planet.residents.map(resident => resident.name)
     return {
       name: planet.name,
       terrain: planet.terrain,
       population: planet.population,
       climate: planet.climate,
-      residents,
+      residents: planet.residents,
       favorite: false
     }
   })
@@ -47,6 +58,7 @@ const cleanVehicles = (data) => {
 }
 
 export {
+  cleanSort,
   cleanCrawl,
   cleanPeople,
   cleanPlanets,

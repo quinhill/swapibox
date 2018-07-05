@@ -1,8 +1,6 @@
 import {
-  cleanCrawl, 
-  cleanPeople, 
-  cleanPlanets,
-  cleanVehicles
+  cleanSort,
+  cleanCrawl
 } from './cleaner';
 
 const generateNumber = () => {
@@ -24,96 +22,55 @@ const fetchData = async (request) => {
   const response = await fetch(url)
   const rawData = await response.json()
   const allData = rawData.results
-  const cleanData = cleanPeople(allData)
-  const fullData = await checkForNested(cleanData)
-  console.log(fullData)
-  // return cleanPeople(fullData)
+  const cleanData = cleanSort(request, allData)
+  const fullData = await resolveNested(cleanData)
+  return fullData
 }
 
-const checkForNested = (data) => {
-  const fullData = data.filter(async object => {
-    const dataKeys = Object.keys(object)
-    const resolvedNested = await dataKeys.map(async key => {
-      if (Array.isArray(object[key])) {
-        const resolvedArray = await nestedArrayFetch(object[key])
-        return object[key] = resolvedArray
-      } else if (object[key].length > 20) {
-        const homeworld = await nestedFetch(object[key])
-        return object[key] = homeworld
-      }
-
-    })
-    return Promise.all(resolvedNested)
+const resolveNested = (data) => {
+  const foundNested = data.map(async object => {
+    if (object.homeworld) {
+      object.homeworld = await fetchHomeworld(object.homeworld)
+      object.population = await fetchPopulation(object.population)
+      object.species = await fetchSpecies(object.species)
+    } else if (object.residents) {
+      object.residents = await fetchResidents(object.residents)
+    }
+    return object
   })
-  return Promise.all(fullData)
+  return Promise.all(foundNested)
 }
 
-  const nestedArrayFetch = (array) => {
-    const retrieveNested = array.map(async url => {
-      const response = await fetch(url)
-      const result = await response.json()
-      return result.name
-    })
-    return Promise.all(retrieveNested)
-  }
-
-  const nestedFetch = async (url) => {
-    const response = await fetch(url)
-    const result = await response.json()
-    const homeworld = result.name
-    return homeworld
-  }
-//   const peoplePromise = people.map(async person => {
-//     const response = await fetch(person.homeworld)
-//     const homeworld = await response.json()
-//     const fullGuy = {...person, homeworld}
-//     return fullGuy
-//   })
-//   return Promise.all(peoplePromise)
-// }
-
-const findSpecies = (people) => {
-  const peoplePromise = people.map(async person => {
-    const response = await fetch(person.species)
-    const species = await response.json()
-    const fullGuy = { ...person, species }
-    return fullGuy
-  })
-  return Promise.all(peoplePromise)
-}
-
-const fetchPlanets = async () => {
-  const url = `https://swapi.co/api/planets/?format=json`
+const fetchHomeworld = async (url) => {
   const response = await fetch(url)
-  const rawPlanets = await response.json()
-  const allPlanets = rawPlanets.results
-  const resolvedResidents = await findResidents(allPlanets)
-  return cleanPlanets(resolvedResidents)
+  const homeworldData = await response.json()
+  return homeworldData.name
 }
 
-const findResidents = (planets) => {
-  const resolvedPlanets = planets.map(async planet => {
-    const residents = await resolveResidents(planet.residents)
-    return {...planet, residents}
-  })
-  return Promise.all(resolvedPlanets)
-}
-
-const resolveResidents = (residentsArray) => {
-  const fullPlanet = residentsArray.map(async url => {
-    const response = await fetch(url)
-    const residents = await response.json()
-    return residents
-  })
-  return Promise.all(fullPlanet)
-}
-
-const fetchVehicles = async () => {
-  const url = `https://swapi.co/api/vehicles/?format=json`
+const fetchPopulation = async (url) => {
   const response = await fetch(url)
-  const resolved = await response.json()
-  const vehicles = resolved.results
-  return cleanVehicles(vehicles)
+  const populationData = await response.json()
+  return populationData.population
+}
+
+const fetchSpecies = async (url) => {
+  const response = await fetch(url)
+  const speciesData = await response.json()
+  return speciesData.name
+}
+
+const fetchResidents = (array) => {
+  const residentNames = array.map(async url => {
+    const resolvedResidents = await resolveResidents(url)
+    return resolvedResidents
+  })
+  return Promise.all(residentNames)
+}
+
+const resolveResidents = async (url) => {
+  const response = await fetch(url)
+  const residentData = await response.json()
+  return residentData.name
 }
 
 

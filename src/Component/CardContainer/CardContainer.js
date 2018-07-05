@@ -2,12 +2,7 @@ import React from 'react';
 import './card-container.css';
 import Card from '../Card/Card';
 
-const CardContainer = ({
-  crawlData, 
-  peopleData, 
-  planetData,
-  vehicleData
-}) => {
+const CardContainer = ({data, crawlData}) => {
 
   let displayCards;
 
@@ -22,12 +17,12 @@ const CardContainer = ({
         <p>{crawlData.date}</p>
       </div>
     </section>
-  } else if (peopleData.length) {
-    displayCards = peopleData.map(person => <Card {...person}/>)
-  } else if (planetData.length) {
-    displayCards = planetData.map(planet => <Card {...planet}/>)
-  } else if (vehicleData.length) {
-    displayCards = vehicleData.map(vehicle => <Card {...vehicle}/>)
+  } else if (data.species) {
+    displayCards = data.map(person => <Card {...person}/>)
+  } else if (data.terrain) {
+    displayCards = data.map(planet => <Card {...planet}/>)
+  } else if (data.model) {
+    displayCards = data.map(vehicle => <Card {...vehicle}/>)
   }
 
   return (

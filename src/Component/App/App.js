@@ -25,7 +25,10 @@ class App extends Component {
 
   getData = async (button) => {
     const data = await fetchData(button)
-    this.setState({data})
+    this.setState({
+      crawlData: {},
+      data
+    })
   }
 
   render() {
@@ -37,9 +40,7 @@ class App extends Component {
         />
         <CardContainer
           crawlData={this.state.crawlData}
-          peopleData={this.state.peopleData}
-          planetData={this.state.planetData}
-          vehicleData={this.state.vehicleData}
+          data={this.state}
         />
       </div>
     );
