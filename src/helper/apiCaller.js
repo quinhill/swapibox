@@ -6,7 +6,7 @@ import {
 } from './cleaner';
 
 const generateNumber = () => {
-  return Math.floor(Math.random() * 8)
+  return Math.floor(Math.random() * 7) + 1
 }
 
 const fetchCrawl = async () => {
@@ -26,21 +26,26 @@ const fetchData = async (request) => {
   const allData = rawData.results
   const cleanData = cleanPeople(allData)
   const fullData = await checkForNested(cleanData)
+  console.log(fullData)
   // return cleanPeople(fullData)
 }
 
 const checkForNested = (data) => {
-  data.forEach(object => {
+  const fullData = data.filter(async object => {
     const dataKeys = Object.keys(object)
-    dataKeys.forEach(async key => {
+    const resolvedNested = await dataKeys.map(async key => {
       if (Array.isArray(object[key])) {
         const resolvedArray = await nestedArrayFetch(object[key])
-        return {...object, resolvedArray}
+        return object[key] = resolvedArray
       } else if (object[key].length > 20) {
-        await nestedFetch(object[key])
+        const homeworld = await nestedFetch(object[key])
+        return object[key] = homeworld
       }
+
     })
+    return Promise.all(resolvedNested)
   })
+  return Promise.all(fullData)
 }
 
   const nestedArrayFetch = (array) => {
@@ -55,6 +60,8 @@ const checkForNested = (data) => {
   const nestedFetch = async (url) => {
     const response = await fetch(url)
     const result = await response.json()
+    const homeworld = result.name
+    return homeworld
   }
 //   const peoplePromise = people.map(async person => {
 //     const response = await fetch(person.homeworld)
