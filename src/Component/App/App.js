@@ -5,9 +5,7 @@ import ButtonContainer from '../ButtonContainer/ButtonContainer';
 import CardContainer from '../CardContainer/CardContainer';
 import {
   fetchCrawl, 
-  fetchPeople, 
-  fetchPlanets,
-  fetchVehicles
+  fetchData
 } from '../../helper/apiCaller';
 
 class App extends Component {
@@ -16,9 +14,7 @@ class App extends Component {
 
     this.state = {
       crawlData: {},
-      peopleData: [],
-      planetData: [],
-      vehicleData: []
+      data: []
     }
   }
 
@@ -28,34 +24,11 @@ class App extends Component {
   }
 
   getData = async (button) => {
-    switch(button) {
-      case 'people':
-        const peopleData = await fetchPeople()
-        this.setState({ 
-          crawlData: '',
-          peopleData,
-          planetData: [],
-          vehicleData: [] 
-        })
-        break;
-      case 'planets':
-        const planetData = await fetchPlanets()
-        this.setState({ 
-          crawlData: '',
-          peopleData: [],
-          planetData,
-          vehicleData: []
-        })
-        break;
-      case 'vehicles':
-        const vehicleData = await fetchVehicles()
-        this.setState({
-          crawlData: '',
-          peopleData: [],
-          planetData: [],
-          vehicleData
-        })
-    }
+    const data = await fetchData(button)
+    this.setState({
+      crawlData: {},
+      data
+    })
   }
 
   render() {
@@ -67,9 +40,7 @@ class App extends Component {
         />
         <CardContainer
           crawlData={this.state.crawlData}
-          peopleData={this.state.peopleData}
-          planetData={this.state.planetData}
-          vehicleData={this.state.vehicleData}
+          data={this.state}
         />
       </div>
     );

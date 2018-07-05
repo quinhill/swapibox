@@ -1,12 +1,10 @@
 import {
-  cleanCrawl, 
-  cleanPeople, 
-  cleanPlanets,
-  cleanVehicles
+  cleanSort,
+  cleanCrawl
 } from './cleaner';
 
 const generateNumber = () => {
-  return Math.floor(Math.random() * 8)
+  return Math.floor(Math.random() * 7) + 1
 }
 
 const fetchCrawl = async () => {
@@ -19,74 +17,64 @@ const fetchCrawl = async () => {
   return crawlData
 }
 
-const fetchPeople = async (request) => {
+const fetchData = async (request) => {
   const url = `https://swapi.co/api/${request}/?format=json`
   const response = await fetch(url)
-  const rawPeople = await response.json()
-  const allPeople = rawPeople.results
-  const peopleHomeworld = await findHomeworld(allPeople)
-  const peopleSpecies = await findSpecies(peopleHomeworld)
-  return cleanPeople(peopleSpecies)
+  const rawData = await response.json()
+  const allData = rawData.results
+  const cleanData = cleanSort(request, allData)
+  const fullData = await resolveNested(cleanData)
+  return fullData
 }
 
-const findHomeworld = (people) => {
-  const peoplePromise = people.map(async person => {
-    const response = await fetch(person.homeworld)
-    const homeworld = await response.json()
-    const fullGuy = {...person, homeworld}
-    return fullGuy
+const resolveNested = (data) => {
+  const foundNested = data.map(async object => {
+    if (object.homeworld) {
+      object.homeworld = await fetchHomeworld(object.homeworld)
+      object.population = await fetchPopulation(object.population)
+      object.species = await fetchSpecies(object.species)
+    } else if (object.residents) {
+      object.residents = await fetchResidents(object.residents)
+    }
+    return object
   })
-  return Promise.all(peoplePromise)
+  return Promise.all(foundNested)
 }
 
-const findSpecies = (people) => {
-  const peoplePromise = people.map(async person => {
-    const response = await fetch(person.species)
-    const species = await response.json()
-    const fullGuy = { ...person, species }
-    return fullGuy
-  })
-  return Promise.all(peoplePromise)
-}
-
-const fetchPlanets = async () => {
-  const url = `https://swapi.co/api/planets/?format=json`
+const fetchHomeworld = async (url) => {
   const response = await fetch(url)
-  const rawPlanets = await response.json()
-  const allPlanets = rawPlanets.results
-  const resolvedResidents = await findResidents(allPlanets)
-  return cleanPlanets(resolvedResidents)
+  const homeworldData = await response.json()
+  return homeworldData.name
 }
 
-const findResidents = (planets) => {
-  const resolvedPlanets = planets.map(async planet => {
-    const residents = await resolveResidents(planet.residents)
-    return {...planet, residents}
-  })
-  return Promise.all(resolvedPlanets)
-}
-
-const resolveResidents = (residentsArray) => {
-  const fullPlanet = residentsArray.map(async url => {
-    const response = await fetch(url)
-    const residents = await response.json()
-    return residents
-  })
-  return Promise.all(fullPlanet)
-}
-
-const fetchVehicles = async () => {
-  const url = `https://swapi.co/api/vehicles/?format=json`
+const fetchPopulation = async (url) => {
   const response = await fetch(url)
-  const resolved = await response.json()
-  const vehicles = resolved.results
-  return cleanVehicles(vehicles)
+  const populationData = await response.json()
+  return populationData.population
+}
+
+const fetchSpecies = async (url) => {
+  const response = await fetch(url)
+  const speciesData = await response.json()
+  return speciesData.name
+}
+
+const fetchResidents = (array) => {
+  const residentNames = array.map(async url => {
+    const resolvedResidents = await resolveResidents(url)
+    return resolvedResidents
+  })
+  return Promise.all(residentNames)
+}
+
+const resolveResidents = async (url) => {
+  const response = await fetch(url)
+  const residentData = await response.json()
+  return residentData.name
 }
 
 
 export {
   fetchCrawl,
-  fetchPeople,
-  fetchPlanets,
-  fetchVehicles
+  fetchData
 }
