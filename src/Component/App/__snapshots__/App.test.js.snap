@@ -21,12 +21,17 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Header />,
+        <Header
+          displayFavorites={[Function]}
+          favorites={Array []}
+/>,
         <ButtonContainer
           checkState={[Function]}
 />,
         <CardContainer
+          addFavorite={[Function]}
           crawlData={Object {}}
+          favorites={Array []}
           people={Array []}
           planets={Array []}
           type=""
@@ -41,7 +46,10 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
+        "props": Object {
+          "displayFavorites": [Function],
+          "favorites": Array [],
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -62,7 +70,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "addFavorite": [Function],
           "crawlData": Object {},
+          "favorites": Array [],
           "people": Array [],
           "planets": Array [],
           "type": "",
@@ -82,12 +92,17 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Header />,
+          <Header
+            displayFavorites={[Function]}
+            favorites={Array []}
+/>,
           <ButtonContainer
             checkState={[Function]}
 />,
           <CardContainer
+            addFavorite={[Function]}
             crawlData={Object {}}
+            favorites={Array []}
             people={Array []}
             planets={Array []}
             type=""
@@ -102,7 +117,10 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "displayFavorites": [Function],
+            "favorites": Array [],
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -123,7 +141,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "addFavorite": [Function],
             "crawlData": Object {},
+            "favorites": Array [],
             "people": Array [],
             "planets": Array [],
             "type": "",
