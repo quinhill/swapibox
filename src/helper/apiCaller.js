@@ -4,16 +4,15 @@ import {
 } from './cleaner';
 
 const generateNumber = () => {
-  return Math.floor(Math.random() * 7) + 1
+  const number =  Math.floor(Math.random() * 7) + 1
+  return fetchCrawl(number)
 }
 
-const fetchCrawl = async () => {
-  const number = generateNumber()
+const fetchCrawl = async (number) => {
   const url = `https://swapi.co/api/films/${number}/?format=json`
   const response = await fetch(url)
   const rawFilm = await response.json()
-  const filmData = await Promise.resolve(rawFilm)
-  const crawlData = cleanCrawl(filmData)
+  const crawlData = cleanCrawl(rawFilm)
   return crawlData
 }
 
@@ -75,6 +74,7 @@ const resolveResidents = async (url) => {
 
 
 export {
-  fetchCrawl,
-  fetchData
+  generateNumber,
+  fetchData,
+  fetchCrawl
 }

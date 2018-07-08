@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonContainer should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ButtonContainer
+    getData={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="button"
+          id="people"
+          name="people"
+          onClick={[Function]}
+>
+          people
+</button>,
+        <button
+          className="button"
+          id="planets"
+          name="planets"
+          onClick={[Function]}
+>
+          planets
+</button>,
+        <button
+          className="button"
+          id="vehicles"
+          name="vehicles"
+          onClick={[Function]}
+>
+          vehicles
+</button>,
+      ],
+      "className": "button-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "people",
+          "className": "button",
+          "id": "people",
+          "name": "people",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "people",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "planets",
+          "className": "button",
+          "id": "planets",
+          "name": "planets",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "planets",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "vehicles",
+          "className": "button",
+          "id": "vehicles",
+          "name": "vehicles",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "vehicles",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="button"
+            id="people"
+            name="people"
+            onClick={[Function]}
+>
+            people
+</button>,
+          <button
+            className="button"
+            id="planets"
+            name="planets"
+            onClick={[Function]}
+>
+            planets
+</button>,
+          <button
+            className="button"
+            id="vehicles"
+            name="vehicles"
+            onClick={[Function]}
+>
+            vehicles
+</button>,
+        ],
+        "className": "button-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "people",
+            "className": "button",
+            "id": "people",
+            "name": "people",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "people",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "planets",
+            "className": "button",
+            "id": "planets",
+            "name": "planets",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "planets",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "vehicles",
+            "className": "button",
+            "id": "vehicles",
+            "name": "vehicles",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "vehicles",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
