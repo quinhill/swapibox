@@ -18,7 +18,8 @@ class App extends Component {
       planets: [],
       vehicles: [],
       favorites: [],
-      type: ''
+      type: '',
+      displayFavorites: false
     }
   }
   
@@ -52,12 +53,17 @@ class App extends Component {
 
   addFavorite = (e) => {
     e.preventDefault()
-    const idNumber = e.target.value
+    const id = e.target.value
     const type = e.target.name
     const card = this.state[type].find(object => {
-      return object.id == idNumber
+      return object.index == id
     })
-    card.favorite = true
+    card.favorite = !card.favorite
+    if (card.favorite) {
+      card.id = 'favorite'
+    } else {
+      card.id = 'none'
+    }
     this.setFavorites(type)
   }
 
@@ -68,10 +74,24 @@ class App extends Component {
     this.setState({favorites})
   }
 
+  displayFavorites = () => {
+    if (this.state.favorites.length) {
+      this.setState({
+        type: 'favorites',
+        displayFavorites: !this.state.displayFavorites
+      })
+    } else {
+      this.setState({type: 'crawlData'})
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header 
+          favorites={this.state.favorites}
+          displayFavorites={this.displayFavorites}
+        />
         <ButtonContainer 
           checkState={this.checkState}
         />
@@ -81,6 +101,7 @@ class App extends Component {
           vehicles={this.state.vehicles}
           type={this.state.type}
           crawlData={this.state.crawlData}
+          favorites={this.state.favorites}
           addFavorite={this.addFavorite}
         />
       </div>

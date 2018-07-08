@@ -5,21 +5,33 @@ import Crawl from '../Crawl/Crawl';
 import PropTypes from 'prop-types';
 
 const CardContainer = (props) => {
-  const { people, planets, vehicles, type, crawlData, addFavorite } = props;
+  const { 
+    people, 
+    planets, 
+    vehicles, 
+    type, 
+    crawlData, 
+    addFavorite,
+    favorites
+  } = props;
 
   let display;
 
   if (type === 'people') {
     display = people.map((person, index) => {
-      return <Card {...person} key={index} addFavorite={addFavorite} />
+      return <Card {...person} addFavorite={addFavorite} index={index} />
     })
   } else if (type === 'planets') {
     display = planets.map((planet, index) => {
-      return <Card {...planet} key={index} addFavorite={addFavorite} />
+      return <Card {...planet} addFavorite={addFavorite} index={index} />
     })
   } else if (type === 'vehicles') {
     display = vehicles.map((vehicle, index) => {
-      return <Card {...vehicle} key={index} addFavorite={addFavorite} />
+      return <Card {...vehicle} addFavorite={addFavorite} index={index} />
+    })
+  } else if (type ==='favorites') {
+    display = favorites.map((favorite, index) => {
+      return <Card {...favorite} addFavorite={addFavorite} />
     })
   } else {
     display = <Crawl {...crawlData} />

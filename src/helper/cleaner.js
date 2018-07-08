@@ -27,7 +27,7 @@ const cleanPeople = (data) => {
       population: person.homeworld,
       favorite: false,
       type: 'people',
-      id: index
+      index: index
     }
   })
   return cleanedPeople
@@ -43,7 +43,7 @@ const cleanPlanets = (data) => {
       residents: planet.residents,
       favorite: false,
       type: 'planets',
-      id: index
+      index: index
     }
   })
   return cleanedPlanets
@@ -58,7 +58,7 @@ const cleanVehicles = (data) => {
       passengers: vehicle.passengers,
       favorite: false,
       type: 'vehicles',
-      id: index
+      index: index
     }
   })
   return cleanedVehicles

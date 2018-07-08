@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+#favorite {
+  background-color: rgba(255, 194, 91, 0.2)
+}
+
 .picture {
   height: 100px;
   width: 100%;  

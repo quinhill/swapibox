@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const Card = (data) => {
 
-
   let picture = data.name.split(' ')  
   picture = picture[0]
 
@@ -12,7 +11,7 @@ const Card = (data) => {
 
   if (data.homeworld) {
     return (
-      <div className={`${data.type}`}  >
+      <div className={data.type} id={data.id} >
         <div className="picture" id={picture}></div>
         <h2>Name: {data.name}</h2>
         <h3>Homeworld: {data.homeworld}</h3>
@@ -20,7 +19,7 @@ const Card = (data) => {
         <p>homeworld population: {data.population}</p>
         <button
           onClick={data.addFavorite}
-          value={data.id}
+          value={data.index}
           name={data.type}
         >
           favorite
@@ -32,7 +31,7 @@ const Card = (data) => {
       return `${resident}, `
     })
     return (
-      <div className={`${data.type}`} >
+      <div className={data.type} id={data.id} >
         <div className="picture" id={picture}></div>
         <h2>Name: {data.name}</h2>
         <h3>Terrain: {data.terrain}</h3>
@@ -41,7 +40,7 @@ const Card = (data) => {
         <p>Residents: {mappedResidents}</p>
         <button
           onClick={data.addFavorite}
-          value={data.id}
+          value={data.index}
           name={data.type}
         >
           favorite
@@ -50,7 +49,7 @@ const Card = (data) => {
     )
   } else if (data.model) {
     return (
-      <div className={`${data.type}`} >
+      <div className={data.type} id={data.id}>
         <div className="picture" id={picture}></div>
         <h2>Name: {data.name}</h2>
         <h3>Model: {data.model}</h3>
@@ -58,7 +57,7 @@ const Card = (data) => {
         <p>Passengers: {data.passengers}</p>
         <button 
           onClick={data.addFavorite} 
-          value={data.id}
+          value={data.index}
           name={data.type}
         >
           favorite
