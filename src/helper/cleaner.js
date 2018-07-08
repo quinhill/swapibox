@@ -19,39 +19,46 @@ const cleanSort = (sort, data) => {
 }
 
 const cleanPeople = (data) => {
-  const cleanedPeople = data.map(person => {
+  const cleanedPeople = data.map((person, index) => {
     return {
       name: person.name,
       homeworld: person.homeworld,
       species: person.species,
       population: person.homeworld,
-      favorite: false
+      favorite: false,
+      type: 'people',
+      index: index
     }
   })
   return cleanedPeople
 }
 
 const cleanPlanets = (data) => {
-  const cleanedPlanets = data.map(planet => {
+  const cleanedPlanets = data.map((planet, index) => {
     return {
       name: planet.name,
       terrain: planet.terrain,
       population: planet.population,
       climate: planet.climate,
       residents: planet.residents,
-      favorite: false
+      favorite: false,
+      type: 'planets',
+      index: index
     }
   })
   return cleanedPlanets
 }
 
 const cleanVehicles = (data) => {
-  const cleanedVehicles = data.map(vehicle => {
+  const cleanedVehicles = data.map((vehicle, index) => {
     return {
       name: vehicle.name,
       model: vehicle.model,
-      class: vehicle.vehicle_class,
-      passengers: vehicle.passengers
+      class: vehicle['vehicle_class'],
+      passengers: vehicle.passengers,
+      favorite: false,
+      type: 'vehicles',
+      index: index
     }
   })
   return cleanedVehicles

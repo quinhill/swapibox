@@ -1,35 +1,52 @@
 import React from 'react';
 import './card-container.css';
 import Card from '../Card/Card';
+import Crawl from '../Crawl/Crawl';
+import PropTypes from 'prop-types';
 
-const CardContainer = ({data, crawlData}) => {
+const CardContainer = (props) => {
+  const { 
+    people, 
+    planets, 
+    vehicles, 
+    type, 
+    crawlData, 
+    addFavorite,
+    favorites
+  } = props;
 
-  let displayCards;
+  let display;
 
-  if (crawlData) {
-   displayCards =  
-    <section className="star-wars">
-      <div className="crawl">
-        <div className="title">
-          <h1>{crawlData.title}</h1>
-        </div>
-        <p>{crawlData.crawlText}</p>
-        <p>{crawlData.date}</p>
-      </div>
-    </section>
-  } else if (data.species) {
-    displayCards = data.map(person => <Card {...person}/>)
-  } else if (data.terrain) {
-    displayCards = data.map(planet => <Card {...planet}/>)
-  } else if (data.model) {
-    displayCards = data.map(vehicle => <Card {...vehicle}/>)
+  if (type === 'people') {
+    display = people.map((person, index) => {
+      return <Card {...person} addFavorite={addFavorite} index={index} />
+    })
+  } else if (type === 'planets') {
+    display = planets.map((planet, index) => {
+      return <Card {...planet} addFavorite={addFavorite} index={index} />
+    })
+  } else if (type === 'vehicles') {
+    display = vehicles.map((vehicle, index) => {
+      return <Card {...vehicle} addFavorite={addFavorite} index={index} />
+    })
+  } else if (type ==='favorites') {
+    display = favorites.map((favorite, index) => {
+      return <Card {...favorite} addFavorite={addFavorite} />
+    })
+  } else {
+    display = <Crawl {...crawlData} />
   }
 
   return (
     <div className="card-container">
-      {displayCards}
+      {display}
     </div>
   )
 }
 
-export default CardContainer;
+CardContainer.Proptypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+  crawlData: PropTypes.object
+}
+
+export default CardContainer

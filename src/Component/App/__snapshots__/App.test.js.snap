@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App getData should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App
+    fetchCrawl={[Function]}
+    fetchData={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Header
+          displayFavorites={[Function]}
+          favorites={Array []}
+/>,
+        <ButtonContainer
+          checkState={[Function]}
+/>,
+        <CardContainer
+          addFavorite={[Function]}
+          crawlData={Object {}}
+          favorites={Array []}
+          people={Array []}
+          planets={Array []}
+          type=""
+          vehicles={Array []}
+/>,
+      ],
+      "className": "App",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "displayFavorites": [Function],
+          "favorites": Array [],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "checkState": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "addFavorite": [Function],
+          "crawlData": Object {},
+          "favorites": Array [],
+          "people": Array [],
+          "planets": Array [],
+          "type": "",
+          "vehicles": Array [],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Header
+            displayFavorites={[Function]}
+            favorites={Array []}
+/>,
+          <ButtonContainer
+            checkState={[Function]}
+/>,
+          <CardContainer
+            addFavorite={[Function]}
+            crawlData={Object {}}
+            favorites={Array []}
+            people={Array []}
+            planets={Array []}
+            type=""
+            vehicles={Array []}
+/>,
+        ],
+        "className": "App",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "displayFavorites": [Function],
+            "favorites": Array [],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "checkState": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "addFavorite": [Function],
+            "crawlData": Object {},
+            "favorites": Array [],
+            "people": Array [],
+            "planets": Array [],
+            "type": "",
+            "vehicles": Array [],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

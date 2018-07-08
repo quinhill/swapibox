@@ -1,16 +1,180 @@
-.person-card {
+.people {
   color: #FFC343;
   border: 1px solid #FFC343;
   width: 250px;
-  height: 300px;
+  height: 350px;
   margin: 20px;
   padding: 10px;
 }
 
+#favorite {
+  background-color: rgba(255, 194, 91, 0.2)
+}
+
 .picture {
   height: 100px;
-  width: 100%;
+  width: 100%;  
+}
+
+#Luke {
   background-image: url('../../assets/people/luke-skywalker.jpeg');
   background-size: cover;
+}
 
+#C-3PO {
+  background-image: url('../../assets/people/c-3po.jpeg');
+  background-size: cover;
+}
+
+#R2-D2 {
+  background-image: url('../../assets/people/r2-d2.jpeg');
+  background-size: cover;
+}
+
+#Darth {
+  background-image: url('../../assets/people/darth-vader.jpg');
+  background-size: cover;
+}
+
+#Leia {
+  background-image: url('../../assets/people/leia-organa.jpg');
+  background-size: cover;
+}
+
+#Owen {
+  background-image: url('../../assets/people/owen-lars.jpg');
+  background-size: cover;
+}
+
+#Beru {
+  background-image: url('../../assets/people/beru-whitesun-iars.png');
+  background-size: cover;
+}
+
+#R5-D4 {
+  background-image: url('../../assets/people/r5d2.jpg');
+  background-size: cover;
+}
+
+#Biggs {
+  background-image: url('../../assets/people/biggs-darklighter.jpg');
+  background-size: cover;
+}
+
+#Obi-Wan {
+  background-image: url('../../assets/people/obi-wan-kenobi.jpg');
+  background-size: cover;
+}
+
+.planets {
+  color: #FFC343;
+  border: 1px solid #FFC343;
+  width: 250px;
+  height: 420px;
+  margin: 20px;
+  padding: 10px;
+}
+
+#Alderaan {
+  background-image: url('../../assets/planets/alderaan.png');
+  background-size: cover;  
+}
+
+#Yavin {
+    background-image: url('../../assets/planets/yavin.png');
+  background-size: cover;
+}
+
+#Hoth {
+    background-image: url('../../assets/planets/hoth.png');
+  background-size: cover;
+}
+
+#Dagobah {
+    background-image: url('../../assets/planets/dagobah.png');
+  background-size: cover;
+}
+
+#Bespin {
+    background-image: url('../../assets/planets/bespin.png');
+  background-size: cover;
+}
+
+#Endor {
+    background-image: url('../../assets/planets/endor.jpeg');
+  background-size: cover;
+}
+
+#Naboo {
+    background-image: url('../../assets/planets/naboo.jpg');
+  background-size: cover;
+}
+
+#Coruscant {
+    background-image: url('../../assets/planets/coruscant.jpeg');
+  background-size: cover;
+}
+
+#Kamino {
+    background-image: url('../../assets/planets/kamino.jpg');
+  background-size: cover;
+}
+
+#Geonosis {
+    background-image: url('../../assets/planets/geonosis.jpg');
+  background-size: cover;
+}
+
+.vehicles {
+  color: #FFC343;
+  border: 1px solid #FFC343;
+  width: 250px;
+  height: 420px;
+  margin: 20px;
+  padding: 10px;
+}
+
+#Sand {
+    background-image: url('../../assets/vehicles/sandcrawler.jpg');
+  background-size: cover;
+}
+
+#T-16 {
+    background-image: url('../../assets/vehicles/T-16.jpg');
+  background-size: cover;
+}
+
+#X-34 {
+    background-image: url('../../assets/vehicles/x-34.jpeg');
+  background-size: cover;
+}
+
+#TIE {
+    background-image: url('../../assets/vehicles/TIE-bomber.jpeg');
+  background-size: cover;
+}
+
+#Snowspeeder {
+    background-image: url('../../assets/vehicles/snowspeeder.jpeg');
+  background-size: cover;
+}
+
+#AT-AT {
+    background-image: url('../../assets/vehicles/AT-AT.jpeg');
+  background-size: cover;
+}
+
+#AT-ST {
+    background-image: url('../../assets/vehicles/AT-ST.jpeg');
+  background-size: cover;
+}
+
+#Storm {
+    background-image: url('../../assets/vehicles/Storm.jpeg');
+  background-size: cover;
+}
+
+#Sail {
+    background-image: url('../../assets/vehicles/Sail.jpeg');
+  background-size: cover;
 }
