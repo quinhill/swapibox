@@ -5,7 +5,12 @@ import { shallow } from 'enzyme';
 describe('Header', () => {
 
   it('should match snapshot', () => {
-    const wrapper = shallow(<Header />)
+
+    const mockFavorites = [{}, {}]
+
+    const wrapper = shallow(<Header 
+                            favorites={mockFavorites}
+                            />)
 
     expect(wrapper).toMatchSnapshot()
   })

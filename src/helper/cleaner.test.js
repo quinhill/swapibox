@@ -28,6 +28,7 @@ describe('cleanSort', () => {
         species: ["https://swapi.co/api/species/1/"],
         population: "https://swapi.co/api/planets/1/",
         favorite: false,
+        index: 0,
         type: "people"
       },
       {
@@ -36,6 +37,7 @@ describe('cleanSort', () => {
         species: ["https://swapi.co/api/species/1/"],
         population: "https://swapi.co/api/planets/1/",
         favorite: false,
+        index: 1,
         type: "people"
       }
     ]
@@ -69,6 +71,7 @@ describe('cleanSort', () => {
         climate: 'temperate',
         residents: ["https://swapi.co/api/people/5/",   "https://swapi.co/api/people/68/", "https://swapi.co/api/people/81/"],
         favorite: false,
+        index: 0,
         type: 'planets'
       },
       {
@@ -78,6 +81,7 @@ describe('cleanSort', () => {
         climate: 'temperate',
         residents: ["https://swapi.co/api/people/5/", "https://swapi.co/api/people/68/", "https://swapi.co/api/people/81/"],
         favorite: false,
+        index: 1,
         type: 'planets'
       }
     ]
@@ -112,6 +116,7 @@ describe('cleanSort', () => {
         class: "wheeled",
         passengers: "30",
         favorite: false,
+        index: 0,
         type: 'vehicles'
       },
       {
@@ -120,6 +125,7 @@ describe('cleanSort', () => {
         class: "wheeled",
         passengers: "30",
         favorite: false,
+        index: 1,
         type: 'vehicles'
       },
     ]

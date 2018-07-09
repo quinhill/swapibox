@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 const Card = (data) => {
 
-  let picture = data.name.split(' ')  
-  picture = picture[0]
-
- 
-
+  
+  
+  
   if (data.homeworld) {
+    let picture = data.name.split(' ')  
+    picture = picture[0]
     return (
       <div className={data.type} id={data.id} >
         <div className="picture" id={picture}></div>
@@ -27,6 +27,8 @@ const Card = (data) => {
       </div>
     )
   } else if (data.terrain) {
+    let picture = data.name.split(' ')
+    picture = picture[0]
     const mappedResidents = data.residents.map(resident => {
       return `${resident}, `
     })
@@ -48,6 +50,8 @@ const Card = (data) => {
       </div>
     )
   } else if (data.model) {
+    let picture = data.name.split(' ')
+    picture = picture[0]
     return (
       <div className={data.type} id={data.id}>
         <div className="picture" id={picture}></div>

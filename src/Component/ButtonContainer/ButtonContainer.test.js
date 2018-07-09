@@ -17,14 +17,6 @@ describe('ButtonContainer', () => {
                         />)
   })
 
-  it('should call getData with the correct params', () => {
-    const expected = 'people'
-
-    wrapper.instance().handleClick()
-
-    expect(mockGetData).toHaveBeenCalledWith(expected)
-  })
-
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })

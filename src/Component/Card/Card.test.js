@@ -8,11 +8,15 @@ describe('Card', () => {
   let mockData
 
   beforeEach(() => {
-    mockData = {
-      name: 'name one',
-      homeworld: 'planet',
-      species: 'human',
-      population: 20000000
+    const mockData = {
+      climate: "temperate",
+      favorite: false,
+      index: 8,
+      name: "Kamino",
+      population: "1000000000",
+      residents: ["Boba Fett"],
+      terrain: "ocean",
+      type: "planets"
     }
     wrapper = shallow(<Card 
                         data={mockData}
