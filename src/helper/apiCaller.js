@@ -21,7 +21,6 @@ const fetchData = async (request) => {
   const response = await fetch(url)
   const rawData = await response.json()
   const allData = rawData.results
-
   const cleanData = cleanSort(request, allData)
   
   const fullData = await resolveNested(cleanData)
@@ -78,5 +77,10 @@ const resolveResidents = async (url) => {
 export {
   generateNumber,
   fetchData,
-  fetchCrawl
+  fetchCrawl,
+  resolveNested,
+  fetchHomeworld,
+  fetchPopulation,
+  fetchSpecies,
+  resolveResidents
 }

@@ -4,7 +4,14 @@ exports[`Header should match snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Header />,
+  Symbol(enzyme.__unrendered__): <Header
+    favorites={
+        Array [
+            Object {},
+            Object {},
+          ]
+    }
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -32,12 +39,13 @@ ShallowWrapper {
 >
           <button
                     className="show-favorites"
+                    onClick={undefined}
           >
                     View Favorites
                     <p
                               className="counter"
                     >
-                              0
+                              2
                     </p>
           </button>
 </div>,
@@ -80,12 +88,13 @@ ShallowWrapper {
         "props": Object {
           "children": <button
             className="show-favorites"
+            onClick={undefined}
 >
             View Favorites
             <p
                         className="counter"
             >
-                        0
+                        2
             </p>
 </button>,
           "className": "fav-button-container",
@@ -101,10 +110,11 @@ ShallowWrapper {
               <p
                 className="counter"
 >
-                0
+                2
 </p>,
             ],
             "className": "show-favorites",
+            "onClick": undefined,
           },
           "ref": null,
           "rendered": Array [
@@ -114,11 +124,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "0",
+                "children": 2,
                 "className": "counter",
               },
               "ref": null,
-              "rendered": "0",
+              "rendered": 2,
               "type": "p",
             },
           ],
@@ -150,12 +160,13 @@ ShallowWrapper {
 >
             <button
                         className="show-favorites"
+                        onClick={undefined}
             >
                         View Favorites
                         <p
                                     className="counter"
                         >
-                                    0
+                                    2
                         </p>
             </button>
 </div>,
@@ -198,12 +209,13 @@ ShallowWrapper {
           "props": Object {
             "children": <button
               className="show-favorites"
+              onClick={undefined}
 >
               View Favorites
               <p
                             className="counter"
               >
-                            0
+                            2
               </p>
 </button>,
             "className": "fav-button-container",
@@ -219,10 +231,11 @@ ShallowWrapper {
                 <p
                   className="counter"
 >
-                  0
+                  2
 </p>,
               ],
               "className": "show-favorites",
+              "onClick": undefined,
             },
             "ref": null,
             "rendered": Array [
@@ -232,11 +245,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "0",
+                  "children": 2,
                   "className": "counter",
                 },
                 "ref": null,
-                "rendered": "0",
+                "rendered": 2,
                 "type": "p",
               },
             ],

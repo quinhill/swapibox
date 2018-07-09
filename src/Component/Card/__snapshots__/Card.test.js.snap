@@ -1,3 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card should match snapshot 1`] = `undefined`;
+exports[`Card should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    data={
+        Object {
+            "climate": "temperate",
+            "favorite": false,
+            "index": 8,
+            "name": "Kamino",
+            "population": "1000000000",
+            "residents": Array [
+              "Boba Fett",
+            ],
+            "terrain": "ocean",
+            "type": "planets",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): undefined,
+  Symbol(enzyme.__nodes__): Array [
+    undefined,
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
