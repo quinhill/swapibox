@@ -1,5 +1,6 @@
 import React from 'react';
 import './header.css';
+import PropTypes from 'prop-types';
 
 const Header = ({favorites, displayFavorites}) => {
   return (
@@ -18,6 +19,11 @@ const Header = ({favorites, displayFavorites}) => {
       </div>
     </header>
   )
+}
+
+Header.Proptypes = {
+  favorites: PropTypes.arrayOf(PropTypes.object),
+  displayFavorites: PropTypes.func
 }
 
 export default Header;
