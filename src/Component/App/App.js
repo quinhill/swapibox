@@ -73,7 +73,6 @@ class App extends Component {
     })
     this.setState({favorites})
   }
-
   displayFavorites = () => {
     if (this.state.favorites.length) {
       this.setState({

@@ -45,8 +45,13 @@ const CardContainer = (props) => {
 }
 
 CardContainer.Proptypes = {
-  data: PropTypes.arrayOf(PropTypes.object),
-  crawlData: PropTypes.object
+  crawlData: PropTypes.object,
+  people: PropTypes.arrayOf(PropTypes.object),
+  planets: PropTypes.arrayOf(PropTypes.object),
+  vehicles: PropTypes.arrayOf(PropTypes.object),
+  type: PropTypes.string,
+  addFavorite: PropTypes.func,
+  favorites: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default CardContainer

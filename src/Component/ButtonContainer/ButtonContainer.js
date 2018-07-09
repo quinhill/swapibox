@@ -41,7 +41,7 @@ const ButtonContainer = ({checkState}) => {
 }
 
 ButtonContainer.Proptypes = {
-  getData: PropTypes.func.isRequired
+  checkState: PropTypes.func.isRequired
 }
 
 export default ButtonContainer;
