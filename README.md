@@ -20,4 +20,18 @@ A personal area of focus for me was refactoring my code. I became very focused o
 
 ### Installation
 
-to run Swapi-box on your machine, clone this repo and run `npm install`, then `npm run`
+to run Swapi-box on your machine, follow these steps in your command line:
+
+`git clone git@github.com:quinhill/swapibox.git`
+
+Then `cd swapibox` and inside that repository, run:
+
+`npm install`
+
+Once the dependencies have been install, this command will open the app in your browser:
+
+`npm start`
+
+### Author
+
+Quinlan Hill 
