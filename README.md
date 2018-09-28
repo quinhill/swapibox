@@ -34,4 +34,4 @@ Once the dependencies have been install, this command will open the app in your 
 
 ### Author
 
-Quinlan Hill 
+* Quinlan Hill - [GitHub](https://github.com/quinhill)/[Turing profile](https://alumni.turing.io/alumni/quinlan-hill)
